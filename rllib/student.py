@@ -16,50 +16,49 @@ class student:
 
 
     def init_model_P(self):
-        pp = 1
-        self.P[0,1,self.A.index('study')] = 1*pp
-        self.P[0,3,self.A.index('facebook')] = 1*pp
+        self.P[self.S.index('class1'), self.S.index('class2'), self.A.index('study')] = 1
+        self.P[self.S.index('class1'),self.S.index('fb'),self.A.index('facebook')] = 1
 
-        self.P[1,2,self.A.index('study')] = 1*pp
-        self.P[1,4,self.A.index('sleep')] = 1*pp
+        self.P[self.S.index('class2'), self.S.index('class3'), self.A.index('study')] = 1
+        self.P[self.S.index('class2'), self.S.index('sleeping'), self.A.index('sleep')] = 1
 
-        self.P[2,4,self.A.index('study')] = 1*pp
-        self.P[2,0,self.A.index('pub')] = 0.2*pp
-        self.P[2,1,self.A.index('pub')] = 0.4*pp
-        self.P[2,2,self.A.index('pub')] = 0.4*pp
+        self.P[self.S.index('class3'), self.S.index('sleeping'), self.A.index('study')] = 1
+        self.P[self.S.index('class3'), self.S.index('class1'), self.A.index('pub')] = 0.2
+        self.P[self.S.index('class3'), self.S.index('class2'), self.A.index('pub')] = 0.4
+        self.P[self.S.index('class3'), self.S.index('class3'), self.A.index('pub')] = 0.4
 
-        self.P[3,0,self.A.index('quit')] = 1*pp
-        self.P[3,3,self.A.index('facebook')] = 1*pp
+        self.P[self.S.index('fb'), self.S.index('class1'), self.A.index('quit')] = 1
+        self.P[self.S.index('fb'), self.S.index('fb'), self.A.index('facebook')] = 1
 
-        self.P[4,4,self.A.index('other')] = 1
+        self.P[self.S.index('sleeping'), self.S.index('sleeping'), self.A.index('other')] = 1
 
 
     def init_model_R(self):
-        self.R[0,self.A.index('study')] = -2
-        self.R[0,self.A.index('facebook')] = -1
+        self.R[self.S.index('class1'), self.A.index('study')] = -2
+        self.R[self.S.index('class1'), self.A.index('facebook')] = -1
 
-        self.R[1,self.A.index('study')] = -2
-        self.R[1,self.A.index('sleep')] = 0
+        self.R[self.S.index('class2'), self.A.index('study')] = -2
+        self.R[self.S.index('class2'), self.A.index('sleep')] = 0
 
-        self.R[2,self.A.index('study')] = 10
-        self.R[2,self.A.index('pub')] = 1
+        self.R[self.S.index('class3'), self.A.index('study')] = 10
+        self.R[self.S.index('class3'), self.A.index('pub')] = 1
 
-        self.R[3,self.A.index('quit')] = 0
-        self.R[3,self.A.index('facebook')] = -1
+        self.R[self.S.index('fb'), self.A.index('quit')] = 0
+        self.R[self.S.index('fb'), self.A.index('facebook')] = -1
 
-        self.R[4,self.A.index('other')] = 0
+        self.R[self.S.index('sleeping'), self.A.index('other')] = 0
 
 
     def init_Π(self):
-        self.Π[0,self.A.index('study')] = 0.5
-        self.Π[0,self.A.index('facebook')] = 0.5
-        self.Π[1,self.A.index('study')] = 0.5
-        self.Π[1,self.A.index('sleep')] = 0.5
-        self.Π[2,self.A.index('pub')] = 0.5
-        self.Π[2,self.A.index('study')] = 0.5
-        self.Π[3,self.A.index('facebook')] = 0.5
-        self.Π[3,self.A.index('quit')] = 0.5
-        self.Π[4,self.A.index('other')] = 1
+        self.Π[self.S.index('class1'), self.A.index('study')] = 0.5
+        self.Π[self.S.index('class1'), self.A.index('facebook')] = 0.5
+        self.Π[self.S.index('class2'), self.A.index('study')] = 0.5
+        self.Π[self.S.index('class2'), self.A.index('sleep')] = 0.5
+        self.Π[self.S.index('class3'), self.A.index('pub')] = 0.5
+        self.Π[self.S.index('class3'), self.A.index('study')] = 0.5
+        self.Π[self.S.index('fb'), self.A.index('facebook')] = 0.5
+        self.Π[self.S.index('fb'), self.A.index('quit')] = 0.5
+        self.Π[self.S.index('sleeping'), self.A.index('other')] = 1
 
 
     def __init__(self):
