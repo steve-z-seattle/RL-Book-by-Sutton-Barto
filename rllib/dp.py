@@ -1,4 +1,4 @@
-# define the base class for MDP problems
+# define the DP algorithm
 
 import numpy as np
 
